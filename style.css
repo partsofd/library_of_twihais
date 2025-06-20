@@ -502,6 +502,20 @@ body.home-page {
 }
 
 .detail-related {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.related-group-title {
+    font-size: 1.2em;
+    margin: 0 0 15px;
+    padding-left: 10px;
+    border-left: 3px solid;
+    font-weight: normal;
+}
+
+.related-group-entries {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     gap: 15px;
@@ -546,41 +560,22 @@ body.home-page {
     padding: 0;
 }
 
-/* --- Responsive Styles --- */
+/* --- Responsive Layout for Mobile --- */
+
 @media (max-width: 768px) {
-
-    /* --- General Adjustments --- */
-    .page-header {
-        padding: 15px;
-    }
-
-    .small-logo {
-        width: 120px;
-    }
-
     /* --- Library Page --- */
     .library-container {
         padding: 0 20px 20px;
     }
 
-    .library-container h1 {
-        font-size: 2em;
-    }
-    
     .entry-list {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
-    .entry::before {
-        font-size: 6em;
-        top: 0;
-        right: -10px;
-    }
-    
+
     /* --- Detail Page --- */
     .detail-container {
-        padding: 20px 15px;
+        padding: 10px 15px;
     }
 
     .detail-card {
@@ -589,46 +584,32 @@ body.home-page {
 
     .detail-main-content {
         flex-direction: column;
-        align-items: center;
         gap: 25px;
-        text-align: center;
     }
 
     .detail-image {
         width: 100%;
-        max-width: 250px;
         height: auto;
+        max-width: 350px;
+        align-self: center;
     }
-    
+
     .detail-name {
         font-size: 2.5em;
+        text-align: center;
     }
-    
+
     .detail-background-number {
-        font-size: 8em;
-        right: -15px;
+        font-size: 10em;
         top: 0;
-    }
-    
-    .detail-section-title {
-        font-size: 1.5em;
+        right: -15px;
     }
 
     .detail-history {
         flex-direction: column;
-        align-items: center;
     }
     
     .detail-history img {
         width: 100%;
-        margin-bottom: 20px;
-    }
-    
-    .detail-history p {
-       flex-basis: auto; /* Reset flex-basis */
-    }
-
-    .detail-categories, .detail-sanctions {
-        justify-content: center;
     }
 } 
