@@ -544,4 +544,91 @@ body.home-page {
     color: rgba(255, 255, 255, 0.7);
     margin: 0 0 8px;
     padding: 0;
+}
+
+/* --- Responsive Styles --- */
+@media (max-width: 768px) {
+
+    /* --- General Adjustments --- */
+    .page-header {
+        padding: 15px;
+    }
+
+    .small-logo {
+        width: 120px;
+    }
+
+    /* --- Library Page --- */
+    .library-container {
+        padding: 0 20px 20px;
+    }
+
+    .library-container h1 {
+        font-size: 2em;
+    }
+    
+    .entry-list {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .entry::before {
+        font-size: 6em;
+        top: 0;
+        right: -10px;
+    }
+    
+    /* --- Detail Page --- */
+    .detail-container {
+        padding: 20px 15px;
+    }
+
+    .detail-card {
+        padding: 20px;
+    }
+
+    .detail-main-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        text-align: center;
+    }
+
+    .detail-image {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+    }
+    
+    .detail-name {
+        font-size: 2.5em;
+    }
+    
+    .detail-background-number {
+        font-size: 8em;
+        right: -15px;
+        top: 0;
+    }
+    
+    .detail-section-title {
+        font-size: 1.5em;
+    }
+
+    .detail-history {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .detail-history img {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .detail-history p {
+       flex-basis: auto; /* Reset flex-basis */
+    }
+
+    .detail-categories, .detail-sanctions {
+        justify-content: center;
+    }
 } 
