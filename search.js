@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('tag-search-input');
-    const entries = document.querySelectorAll('.entry-list .entry');
+    const entryLinks = document.querySelectorAll('.entry-list .entry-link');
 
     searchInput.addEventListener('input', function() {
         const searchTerm = this.value.toLowerCase().trim();
 
-        entries.forEach(function(entry) {
+        entryLinks.forEach(function(entryLink) {
+            const entry = entryLink.querySelector('.entry');
             const name = entry.querySelector('.entry-name').textContent.toLowerCase();
             const categories = entry.querySelectorAll('.entry-categories span');
             let isVisible = false;
@@ -30,9 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             if (isVisible) {
-                entry.style.display = 'flex';
+                entryLink.style.display = 'block';
             } else {
-                entry.style.display = 'none';
+                entryLink.style.display = 'none';
             }
         });
     });

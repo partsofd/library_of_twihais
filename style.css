@@ -193,10 +193,17 @@ body.home-page {
 .entry-categories span {
     display: inline-block;
     margin: 2px;
-    padding: 2px 6px;
+    padding: 4px 8px;
     font-size: 0.8em;
     border-radius: 3px;
     font-style: italic;
+    width: 80px;
+    height: 24px;
+    line-height: 16px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* --- Type Colors --- */
@@ -210,6 +217,13 @@ body.home-page {
 .entry.type-blue .entry-categories span {
     color: rgba(0, 169, 255, 0.7);
     background-color: rgba(0, 169, 255, 0.1);
+    width: 80px;
+    height: 24px;
+    line-height: 16px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Red */
@@ -221,6 +235,13 @@ body.home-page {
 .entry.type-red .entry-categories span {
     color: rgba(255, 71, 71, 0.7);
     background-color: rgba(255, 71, 71, 0.1);
+    width: 80px;
+    height: 24px;
+    line-height: 16px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Green */
@@ -232,6 +253,13 @@ body.home-page {
 .entry.type-green .entry-categories span {
     color: rgba(71, 255, 123, 0.7);
     background-color: rgba(71, 255, 123, 0.1);
+    width: 80px;
+    height: 24px;
+    line-height: 16px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* White */
@@ -243,6 +271,13 @@ body.home-page {
 .entry.type-white .entry-categories span {
     color: rgba(255, 255, 255, 0.7);
     background-color: rgba(255, 255, 255, 0.1);
+    width: 80px;
+    height: 24px;
+    line-height: 16px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .entry p {
@@ -333,6 +368,13 @@ body.home-page {
     transition: color 0.2s ease, border-bottom-color 0.2s ease;
 }
 
+.detail-section a {
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 1px dotted;
+    transition: color 0.2s ease, border-bottom-color 0.2s ease;
+}
+
 /* Detail Page Type Colors */
 .detail-card.type-blue { border-color: #00a9ff; }
 .detail-card.type-blue .detail-background-number { color: rgba(0, 169, 255, 0.1); }
@@ -374,6 +416,9 @@ body.home-page {
 .detail-card.type-red .detail-description a,
 .detail-card.type-red .detail-description a:visited { color: #ff4747; }
 .detail-card.type-red .detail-description a:hover { color: #ff7a7a; }
+.detail-card.type-red .detail-section a,
+.detail-card.type-red .detail-section a:visited { color: #ff4747; }
+.detail-card.type-red .detail-section a:hover { color: #ff7a7a; }
 .detail-card.type-red .detail-section-title { border-color: rgba(255, 71, 71, 0.3); }
 .detail-card.type-red .detail-history {
     display: flex;
@@ -406,6 +451,9 @@ body.home-page {
 .detail-card.type-green .detail-description a,
 .detail-card.type-green .detail-description a:visited { color: #47ff7b; }
 .detail-card.type-green .detail-description a:hover { color: #85ffaa; }
+.detail-card.type-green .detail-section a,
+.detail-card.type-green .detail-section a:visited { color: #47ff7b; }
+.detail-card.type-green .detail-section a:hover { color: #85ffaa; }
 .detail-card.type-green .detail-section-title { border-color: rgba(71, 255, 123, 0.3); }
 .detail-card.type-green .detail-history {
     display: flex;
