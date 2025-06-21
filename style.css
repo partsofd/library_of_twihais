@@ -269,15 +269,20 @@ body.home-page {
 .entry.type-white .entry-image { border-color: #ffffff; }
 .entry.type-white .entry-name { text-shadow: 0 0 5px #ffffff; }
 .entry.type-white .entry-categories span {
-    color: rgba(255, 255, 255, 0.7);
-    background-color: rgba(255, 255, 255, 0.1);
-    width: 80px;
-    height: 24px;
-    line-height: 16px;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.entry.type-purple { border-color: #a855f7; }
+.entry.type-purple:hover { box-shadow: 0 0 20px rgba(168, 85, 247, 0.7); }
+.entry.type-purple::before { color: rgba(168, 85, 247, 0.15); }
+.entry.type-purple .entry-image { border-color: #a855f7; }
+.entry.type-purple .entry-name { text-shadow: 0 0 5px #a855f7; }
+.entry.type-purple .entry-categories span {
+    color: rgba(168, 85, 247, 0.9);
+    background-color: rgba(168, 85, 247, 0.15);
+    border: 1px solid rgba(168, 85, 247, 0.3);
 }
 
 .entry p {
@@ -512,6 +517,41 @@ body.home-page {
 .detail-card.type-white .detail-sanctions span { color: rgba(255, 255, 255, 0.9); border-color: rgba(255, 255, 255, 0.5); }
 .detail-card.type-white .related-entry:hover { background-color: rgba(255, 255, 255, 0.2); }
 .detail-card.type-white .related-image { border-color: #ffffff; }
+
+.detail-card.type-purple { border-color: #a855f7; }
+.detail-card.type-purple .detail-background-number { color: rgba(168, 85, 247, 0.1); }
+.detail-card.type-purple .detail-image { border-color: #a855f7; }
+.detail-card.type-purple .detail-name { text-shadow: 0 0 10px #a855f7; }
+.detail-card.type-purple .detail-categories span { color: rgba(168, 85, 247, 0.9); background-color: rgba(168, 85, 247, 0.15); }
+.detail-card.type-purple .detail-description a,
+.detail-card.type-purple .detail-description a:visited { color: #a855f7; }
+.detail-card.type-purple .detail-description a:hover { color: #c084fc; }
+.detail-card.type-purple .detail-section a,
+.detail-card.type-purple .detail-section a:visited { color: #a855f7; }
+.detail-card.type-purple .detail-section a:hover { color: #c084fc; }
+.detail-card.type-purple .detail-section-title { border-color: rgba(168, 85, 247, 0.3); }
+.detail-card.type-purple .detail-history {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    align-items: flex-start;
+}
+.detail-card.type-purple .detail-history p {
+    order: 2;
+    flex-basis: 300px;
+    flex-grow: 1;
+    margin: 0 !important; /* Override default p margin */
+}
+.detail-card.type-purple .detail-history img {
+    order: 1;
+    max-width: 100%;
+    width: 400px;
+    border-radius: 5px;
+    border: 1px solid;
+}
+.detail-card.type-purple .detail-sanctions span { color: rgba(168, 85, 247, 0.9); border-color: rgba(168, 85, 247, 0.5); }
+.detail-card.type-purple .related-entry:hover { background-color: rgba(168, 85, 247, 0.2); }
+.detail-card.type-purple .related-image { border-color: #a855f7; }
 
 .entry p {
     margin: 0;
