@@ -486,6 +486,9 @@ body.home-page {
 .detail-card.type-white .detail-description a,
 .detail-card.type-white .detail-description a:visited { color: #ffffff; }
 .detail-card.type-white .detail-description a:hover { color: #dddddd; }
+.detail-card.type-white .detail-section a,
+.detail-card.type-white .detail-section a:visited { color: #ffffff; }
+.detail-card.type-white .detail-section a:hover { color: #dddddd; }
 .detail-card.type-white .detail-section-title { border-color: rgba(255, 255, 255, 0.3); }
 .detail-card.type-white .detail-history {
     display: flex;
