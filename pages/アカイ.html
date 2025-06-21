@@ -39,6 +39,8 @@
             opacity: 0;
             transform: scale(0.8);
             transition: all 1s ease;
+            position: relative;
+            z-index: 10;
         }
         
         .ebisu-reveal.show {
@@ -118,10 +120,6 @@
                     <p>ツイ廃界隈の全てを破壊する存在。あらゆるマナー、ライン、不文律は彼の前に意味を成さない。乗っ取りやアングラ行為はもちろん巨大なbotやえげつないbotを運営するなどツイ廃界隈の狂える神である。</p>
                 </div>
 
-                <div class="detail-section" id="ebisu-section1">
-                    <h2 class="detail-section-title"><a href="とうけちゅんた.html">元中の人</a></h2>
-                </div>
-
                 <div class="detail-section" id="ebisu-section2">
                     <h2 class="detail-section-title">関連ツイ廃</h2>
                     <div class="detail-related" id="ebisu-related">
@@ -195,6 +193,7 @@
         function transformToEbisu() {
             const akaiCard = document.getElementById('akai-card');
             const ebisuCard = document.getElementById('ebisu-card');
+            const particlesJs = document.getElementById('particles-js');
             
             // アカイカードをフェードアウト
             akaiCard.style.opacity = '0';
@@ -205,9 +204,16 @@
                 akaiCard.style.display = 'none';
                 ebisuCard.style.display = 'block';
                 
+                // particles-jsのz-indexを下げて、恵比寿カードのリンクがクリックできるようにする
+                if (particlesJs) {
+                    particlesJs.style.zIndex = '1';
+                }
+                
                 // 恵比寿カードをフェードイン
                 setTimeout(() => {
                     ebisuCard.classList.add('show');
+                    // 恵比寿カードのz-indexを確実に設定
+                    ebisuCard.style.zIndex = '10';
                 }, 100);
             }, 1000);
         }
