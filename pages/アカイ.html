@@ -5,6 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ツイ廃図鑑 - アカイ</title>
     <link rel="stylesheet" href="../style.css">
+    <style>
+        .transformation-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+        
+        .transformation-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .transformation-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            font-size: 2em;
+            text-shadow: 0 0 10px #ff4747;
+        }
+        
+        .ebisu-reveal {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 1s ease;
+        }
+        
+        .ebisu-reveal.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .mystery-link {
+            cursor: pointer;
+            color: #47ff7b;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+        
+        .mystery-link:hover {
+            color: #ff4747;
+        }
+    </style>
 </head>
 <body>
     <div id="particles-js"></div>
@@ -14,28 +66,28 @@
     </header>
 
     <main class="detail-container">
-        <div class="detail-card type-green">
+        <div class="detail-card type-green" id="akai-card">
             <div class="detail-background-number">026</div>
             <div class="detail-main-content">
-                <img src="../imgs/characters/アカイ.jpg" alt="アカイ" class="detail-image">
+                <img src="../imgs/characters/アカイ.jpg" alt="アカイ" class="detail-image" id="akai-image">
                 <div class="detail-info">
-                    <h1 class="detail-name">アカイ</h1>
-                    <div class="detail-categories">
+                    <h1 class="detail-name" id="akai-name">アカイ</h1>
+                    <div class="detail-categories" id="akai-categories">
                         <span>ネタツイ系</span>
                     </div>
-                    <div class="detail-description">
+                    <div class="detail-description" id="akai-description">
                         <p>所属:無所属</p>
                         <p>急にバズってきたネタツイ系のツイ廃。赤箱と同じ色が名前に入っているせいで目をつけられたがお互いにファンマ交換交換するに至るなど、癒着が苦手なネタツイ系にしてはかなりコミュ力が高い。</p>
-                        <p>2025年6月頃からスペースに上がるようになったのだが、<br>声がどうも”<a href="恵比寿.html">誰か</a>”に似ている…</p>
+                        <p>2025年6月頃からスペースに上がるようになったのだが、<br>声がどうも"<span class="mystery-link" onclick="startTransformation()">誰か</span>"に似ている…</p>
                     </div>
 
-                    <div class="detail-section">
+                    <div class="detail-section" id="akai-section1">
                         <h2 class="detail-section-title"><a href="とうけちゅんた.html">元中の人</a></h2>
                     </div>
 
-                    <div class="detail-section">
+                    <div class="detail-section" id="akai-section2">
                         <h2 class="detail-section-title">関連ツイ廃</h2>
-                        <div class="detail-related">
+                        <div class="detail-related" id="akai-related">
                             <a href="赤箱.html" class="related-entry">
                                 <p>ファンマーク交換</p>
                                 <img src="../imgs/characters/赤箱.jpg" alt="赤箱" class="related-image">
@@ -48,7 +100,117 @@
         </div>
     </main>
 
+    <!-- 恵比寿の内容（隠し要素） -->
+    <div class="detail-card type-red ebisu-reveal" id="ebisu-card" style="display: none;">
+        <div class="detail-background-number">026-BACK</div>
+        <div class="detail-main-content">
+            <img src="../imgs/characters/恵比寿.jpg" alt="恵比寿" class="detail-image" id="ebisu-image">
+            <div class="detail-info">
+                <h1 class="detail-name" id="ebisu-name">恵比寿</h1>
+                <div class="detail-categories" id="ebisu-categories">
+                    <span>アングラ系</span>
+                    <span>エンカ</span>
+                    <span>スペース</span>
+                    <span>モス界隈</span>
+                </div>
+                <div class="detail-description" id="ebisu-description">
+                    <p>所属:モス界隈</p>
+                    <p>ツイ廃界隈の全てを破壊する存在。あらゆるマナー、ライン、不文律は彼の前に意味を成さない。乗っ取りやアングラ行為はもちろん巨大なbotやえげつないbotを運営するなどツイ廃界隈の狂える神である。</p>
+                </div>
+
+                <div class="detail-section" id="ebisu-section1">
+                    <h2 class="detail-section-title"><a href="とうけちゅんた.html">元中の人</a></h2>
+                </div>
+
+                <div class="detail-section" id="ebisu-section2">
+                    <h2 class="detail-section-title">関連ツイ廃</h2>
+                    <div class="detail-related" id="ebisu-related">
+                        <a href="緑刃.html" class="related-entry">
+                            <p>彼氏</p>
+                            <img src="../imgs/characters/緑刃.jpg" alt="緑刃" class="related-image">
+                            <span class="related-name">緑刃</span>
+                        </a>
+                        <a href="アカイ.html" class="related-entry">
+                            <p>ガワ</p>
+                            <img src="../imgs/characters/アカイ.jpg" alt="アカイ" class="related-image">
+                            <span class="related-name">アカイ</span>
+                        </a>
+                        <a href="好きな人嫌いな人bot.html" class="related-entry">
+                            <p>運営しているbot</p>
+                            <img src="../imgs/characters/好きな人嫌いな人bot.jpg" alt="好きな人嫌いな人bot" class="related-image">
+                            <span class="related-name">好きな人嫌いな人bot</span>
+                        </a>
+                        <a href="ツイ廃デスノートbot.html" class="related-entry">
+                            <p>受け継いだbot</p>
+                            <img src="../imgs/characters/ツイ廃デスノートbot.jpg" alt="ツイ廃デスノートbot" class="related-image">
+                            <span class="related-name">ツイ廃デスノートbot</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 変化オーバーレイ -->
+    <div class="transformation-overlay" id="transformation-overlay">
+        <div class="transformation-content">
+            <div id="transformation-text">誰か...？</div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="../script.js"></script>
+    <script>
+        let transformationStep = 0;
+        const transformationTexts = [
+            "誰か...？",
+            "もしかして...",
+            "ツイ廃界隈の狂える神..."
+        ];
+
+        function startTransformation() {
+            const overlay = document.getElementById('transformation-overlay');
+            const text = document.getElementById('transformation-text');
+            
+            overlay.classList.add('active');
+            
+            // テキスト変化
+            let textIndex = 0;
+            const textInterval = setInterval(() => {
+                if (textIndex < transformationTexts.length) {
+                    text.textContent = transformationTexts[textIndex];
+                    textIndex++;
+                } else {
+                    clearInterval(textInterval);
+                    setTimeout(() => {
+                        overlay.classList.remove('active');
+                        setTimeout(() => {
+                            transformToEbisu();
+                        }, 500);
+                    }, 1000);
+                }
+            }, 800);
+        }
+
+        function transformToEbisu() {
+            const akaiCard = document.getElementById('akai-card');
+            const ebisuCard = document.getElementById('ebisu-card');
+            
+            // アカイカードをフェードアウト
+            akaiCard.style.opacity = '0';
+            akaiCard.style.transform = 'scale(0.9)';
+            akaiCard.style.transition = 'all 1s ease';
+            
+            setTimeout(() => {
+                akaiCard.style.display = 'none';
+                ebisuCard.style.display = 'block';
+                
+                // 恵比寿カードをフェードイン
+                setTimeout(() => {
+                    ebisuCard.classList.add('show');
+                }, 100);
+            }, 1000);
+        }
+    </script>
 </body>
 </html>
